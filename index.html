@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Min første nettside</title>
+  <meta name="description" content="En enkel, rask og responsiv start for min nettside." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," /> <!-- minimalistisk ‘favicon’ -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Hei, verden! 🌍</h1>
+      <nav aria-label="Hovedmeny">
+        <ul class="nav">
+          <li><a href="#hjem">Hjem</a></li>
+          <li><a href="#om">Om</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="hjem" class="container">
+    <section class="hero">
+      <h2>Velkommen til min nettside</h2>
+      <p>Dette er en enkel start — perfekt for å lære HTML, CSS og litt JavaScript.</p>
+      <button id="trykkMeg">Trykk meg</button>
+    </section>
+
+    <section id="om">
+      <h3>Om meg</h3>
+      <p>Jeg lærer web! Her er noen ting jeg vil øve på:</p>
+      <ul>
+        <li>Lenker og bilder</li>
+        <li>Responsiv layout</li>
+        <li>Formskjema og knapper</li>
+      </ul>
+      <figure>
+        <img src="https://picsum.photos/800/400" alt="Et tilfeldig illustrasjonsbilde">
+        <figcaption>Et tilfeldig bilde fra picsum.photos.</figcaption>
+      </figure>
+    </section>
+
+    <section id="kontakt">
+      <h3>Kontakt</h3>
+      <p>Send meg en melding (demo):</p>
+      <form>
+        <label for="navn">Navn</label>
+        <input id="navn" name="navn" type="text" placeholder="Ditt navn" required>
+        <label for="melding">Melding</label>
+        <textarea id="melding" name="melding" placeholder="Hva vil du si?" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Min Nettside</small>
+    </div>
+  </footer>
+</body>
+</html>
