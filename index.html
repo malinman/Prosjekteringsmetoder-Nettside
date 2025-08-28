@@ -1,65 +1,99 @@
 <!doctype html>
-<html lang="nb">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Min første nettside</title>
-  <meta name="description" content="En enkel, rask og responsiv start for min nettside." />
+  <title>Group 7 · Vessel information</title>
+  <meta name="description" content="Front page for Group 7: company, fleet and environmental strategy." />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:," /> <!-- minimalistisk ‘favicon’ -->
+  <link rel="icon" href="data:," />
   <script defer src="script.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <div class="container">
-      <h1>Hei, verden! 🌍</h1>
-      <nav aria-label="Hovedmeny">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Group 7</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" aria-label="Main menu">
         <ul class="nav">
-          <li><a href="#hjem">Hjem</a></li>
-          <li><a href="#om">Om</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="index.html" aria-current="page">Our company</a></li>
+          <li><a href="FleetofVessels.html">Our fleet of vessels</a></li>
+          <li><a href="EnvironmentalStrategy.html">Environmental strategy</a></li>
+          <li><a href="Calculations.html">Calculations</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="hjem" class="container">
-    <section class="hero">
-      <h2>Velkommen til min nettside</h2>
-      <p>Dette er en enkel start — perfekt for å lære HTML, CSS og litt JavaScript.</p>
-      <button id="trykkMeg">Trykk meg</button>
+  <main id="main" class="container">
+    <!-- Hero -->
+    <section class="hero card">
+      <h1>Group 7 – Vessel information</h1>
+      <p>
+        We operate a modern fleet with a clear focus on safety, efficiency and sustainability.
+        Browse our vessels, read our environmental commitments, and explore selected calculations.
+      </p>
+      <div class="actions">
+        <a class="btn" href="FleetofVessels.html">See our fleet</a>
+        <a class="btn btn-ghost" href="EnvironmentalStrategy.html">Environmental strategy</a>
+      </div>
     </section>
 
-    <section id="om">
-      <h3>Om meg</h3>
-      <p>Jeg lærer web! Her er noen ting jeg vil øve på:</p>
-      <ul>
-        <li>Lenker og bilder</li>
-        <li>Responsiv layout</li>
-        <li>Formskjema og knapper</li>
-      </ul>
-      <figure>
-        <img src="https://picsum.photos/800/400" alt="Et tilfeldig illustrasjonsbilde">
-        <figcaption>Et tilfeldig bilde fra picsum.photos.</figcaption>
-      </figure>
+    <!-- Highlights -->
+    <section class="grid">
+      <article class="card">
+        <h3>Our company</h3>
+        <p class="muted">Who we are, our routes and how we operate.</p>
+        <ul>
+          <li>Safe and reliable operations</li>
+          <li>Experienced crews</li>
+          <li>Continuous improvement</li>
+        </ul>
+        <a class="link" href="index.html">You’re here →</a>
+      </article>
+
+      <article class="card">
+        <h3>Fleet of vessels</h3>
+        <p class="muted">Capacities, dimensions and key particulars.</p>
+        <ul>
+          <li>At-a-glance vessel cards</li>
+          <li>Propulsion and range</li>
+          <li>Routes and turnarounds</li>
+        </ul>
+        <a class="link" href="FleetofVessels.html">Open page →</a>
+      </article>
+
+      <article class="card">
+        <h3>Environmental strategy</h3>
+        <p class="muted">Clear targets, measures and reporting.</p>
+        <ul>
+          <li>Net zero by 2050</li>
+          <li>Design & operations measures</li>
+          <li>Transparent KPIs</li>
+        </ul>
+        <a class="link" href="EnvironmentalStrategy.html">Open page →</a>
+      </article>
     </section>
 
-    <section id="kontakt">
-      <h3>Kontakt</h3>
-      <p>Send meg en melding (demo):</p>
-      <form>
-        <label for="navn">Navn</label>
-        <input id="navn" name="navn" type="text" placeholder="Ditt navn" required>
-        <label for="melding">Melding</label>
-        <textarea id="melding" name="melding" placeholder="Hva vil du si?" rows="4" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+    <!-- Calculations teaser -->
+    <section class="card">
+      <h2>Calculations</h2>
+      <p class="muted">
+        Selected annual fuel and emissions estimates for our vessels, with intensities and EEXI snapshots.
+        Full details and tables are available on the calculations page.
+      </p>
+      <div class="actions">
+        <a class="btn" href="Calculations.html">View calculations</a>
+        <a class="btn btn-ghost" href="EnvironmentalStrategy.html">Read our commitments</a>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> Min Nettside</small>
+      <small>© <span id="year"></span> Shipowner Group 7</small>
     </div>
   </footer>
 </body>

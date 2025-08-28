@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fleet of Vessels · Group 7</title>
+  <meta name="description" content="Overview of our fleet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Group 7</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" aria-label="Main menu">
+        <ul class="nav">
+          <li><a href="index.html">Our company</a></li>
+          <li><a href="FleetofVessels.html" aria-current="page">Our fleet of vessels</a></li>
+          <li><a href="EnvironmentalStrategy.html">Environmental strategy</a></li>
+          <li><a href="Calculations.html">Calculations</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Hero / intro -->
+    <section id="FleetofVessels" class="hero card">
+      <h1>Fleet of Vessels</h1>
+      <p>Overview of key particulars for selected vessels in our fleet.</p>
+      <a class="btn btn-ghost" href="index.html">← Back to home</a>
+    </section>
+
+    <!-- Fleet cards (rendered from JSON below) -->
+    <section class="grid" id="fleet-grid"></section>
+
+    <!-- Embedded fleet data (exactly the file you sent) -->
+    <script type="application/json" id="fleet-data">
+{
+  "2": {
+    "id": "2",
+    "name": "TMR4115 Project",
+    "description": "The fleet used for TMR4115 student assignment project in 2025",
+    "created_date": "2025-08-07T11:32:58.242845",
+    "vessels": [
+      {
+        "mmsi": "734115000",
+        "imo": "4115001",
+        "name": "Alvin",
+        "capacity": 7500,
+        "speed": 13,
+        "power_installed": 7500,
+        "fuel_type": "HFO",
+        "sfc": 190,
+        "llrate": 1000
+      },
+      {
+        "mmsi": "734115002",
+        "imo": "4115002",
+        "name": "Simon",
+        "capacity": 8000,
+        "speed": 13.5,
+        "power_installed": 8000,
+        "fuel_type": "HFO",
+        "sfc": 190,
+        "llrate": 1000
+      },
+      {
+        "mmsi": "734115003",
+        "imo": "4115003",
+        "name": "Theodor",
+        "capacity": 7000,
+        "speed": 13,
+        "power_installed": 7200,
+        "fuel_type": "HFO",
+        "sfc": 190,
+        "llrate": 1000
+      }
+    ]
+  }
+}
+    </script>
+
+    <!-- Inline render script (keeps page portable without extra setup) -->
+    <script>
+      // Map images by vessel name (fallback to a placeholder if missing)
+      const imgMap = {
+        "Alvin": "assets/Alvin.jpg",
+        "Simon": "assets/Simon.webp",
+        "Theodor": "assets/Theodor.jpg"
+      };
+      const fallbackImg = "https://picsum.photos/800/450?ship";
+
+      // Format numbers with spaces as thousand separators
+      const fmt = (n) => {
+        if (typeof n !== "number") return n;
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      };
+
+      // Read embedded JSON
+      const raw = document.getElementById("fleet-data").textContent.trim();
+      let vessels = [];
+      try {
+        const data = JSON.parse(raw);
+        vessels = (data["2"] && data["2"].vessels) ? data["2"].vessels : (data.vessels || []);
+      } catch (e) {
+        console.error("Invalid fleet JSON:", e);
+      }
+
+      // Render cards
+      const grid = document.getElementById("fleet-grid");
+      grid.innerHTML = vessels.map(v => {
+        const imgSrc = imgMap[v.name] || fallbackImg;
+        return `
+        <article class="card">
+          <figure class="media">
+            <img src="${imgSrc}" alt="Photo of ${v.name}" loading="lazy" width="800" height="450">
+            <figcaption>${v.name}</figcaption>
+          </figure>
+          <ul>
+            <li><strong>MMSI:</strong> ${v.mmsi}</li>
+            <li><strong>IMO:</strong> ${v.imo}</li>
+            <li><strong>Capacity:</strong> ${fmt(v.capacity)}</li>
+            <li><strong>Speed:</strong> ${v.speed} kn</li>
+            <li><strong>Installed power:</strong> ${fmt(v.power_installed)} kW</li>
+            <li><strong>Fuel type:</strong> ${v.fuel_type}</li>
+            <li><strong>SFC:</strong> ${fmt(v.sfc)} g/kWh</li>
+            <li><strong>LL rate:</strong> ${fmt(v.llrate)}</li>
+          </ul>
+        </article>`;
+      }).join("");
+    </script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Shipowner Group 7</small>
+    </div>
+  </footer>
+</body>
+</html>

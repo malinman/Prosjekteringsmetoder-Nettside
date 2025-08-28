@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculations · Group 7</title>
+  <meta name="description" content="Key calculations and KPIs for the fleet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Group 7</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" aria-label="Main menu">
+        <ul class="nav">
+          <li><a href="index.html">Our company</a></li>
+          <li><a href="FleetofVessels.html">Our fleet of vessels</a></li>
+          <li><a href="EnvironmentalStrategy.html">Environmental strategy</a></li>
+          <li><a href="Calculations.html" aria-current="page">Calculations</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Hero -->
+    <section class="hero card">
+      <h1>Calculations</h1>
+      <p>Summary of operations, annual fuel use and emissions for Alvin, Simon and Theodor.</p>
+      <a class="btn btn-ghost" href="index.html">← Back to home</a>
+    </section>
+
+    <!-- Key figures -->
+    <section class="grid">
+      <article class="card stat">
+        <div class="label">Total annual CO₂</div>
+        <div class="value">116 603 <span class="unit">t/year</span></div>
+        <p class="muted">Alvin 37 974 t · Simon 41 337 t · Theodor 37 292 t</p>
+      </article>
+      <article class="card stat">
+        <div class="label">CO₂ per nautical mile (best)</div>
+        <div class="value">0.346 <span class="unit">t/nm</span></div>
+        <p class="muted">Lowest: Theodor · Alvin 0.358 · Simon 0.366</p>
+      </article>
+      <article class="card stat">
+        <div class="label">Best EEXI (lower is better)</div>
+        <div class="value">35.06 <span class="unit">gCO₂/(t·nm)</span></div>
+        <p class="muted">Best: Simon · Alvin 36.41 · Theodor 37.45</p>
+      </article>
+    </section>
+
+    <!-- Operations summary -->
+    <section class="card">
+      <h2>Operational data per vessel</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Vessel</th>
+              <th>Speed [kn]</th>
+              <th>Route</th>
+              <th>Time per roundtrip [h]</th>
+              <th>Roundtrip [nm]</th>
+              <th>Trips / year</th>
+              <th>Annual distance [nm]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alvin</td>
+              <td>13.0</td>
+              <td>Alvin’s route</td>
+              <td>251.7</td>
+              <td>3 116.0</td>
+              <td>34</td>
+              <td>105 944.0</td>
+            </tr>
+            <tr>
+              <td>Simon</td>
+              <td>13.5</td>
+              <td>Simon’s route</td>
+              <td>291.1</td>
+              <td>3 768.0</td>
+              <td>30</td>
+              <td>113 040.0</td>
+            </tr>
+            <tr>
+              <td>Theodor</td>
+              <td>13.0</td>
+              <td>Theodor’s route</td>
+              <td>336.7</td>
+              <td>4 221.0</td>
+              <td>26</td>
+              <td>109 746.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Fuel -->
+    <section class="card">
+      <h2>Annual fuel consumption</h2>
+      <p class="muted">Calculated from engine power, SFC and number of roundtrips. Unit: tonnes HFO/year.</p>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Vessel</th>
+              <th>Fuel [t/year]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Alvin</td><td>12 194</td></tr>
+            <tr><td>Simon</td><td>13 275</td></tr>
+            <tr><td>Theodor</td><td>11 975</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CO2 -->
+    <section class="card">
+      <h2>Annual CO₂ emissions</h2>
+      <p class="muted">Based on fuel consumption. Unit: tonnes CO₂/year.</p>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Vessel</th>
+              <th>CO₂ [t/year]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Alvin</td><td>37 974</td></tr>
+            <tr><td>Simon</td><td>41 337</td></tr>
+            <tr><td>Theodor</td><td>37 292</td></tr>
+            <tr class="total">
+              <td><strong>Total</strong></td>
+              <td><strong>116 603</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Intensities -->
+    <section class="card">
+      <h2>Intensities</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Vessel</th>
+              <th>CO₂ / nm [t/nm]</th>
+              <th>CO₂e / nm [kg/nm]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Alvin</td><td>0.358</td><td>359.568</td></tr>
+            <tr><td>Simon</td><td>0.366</td><td>366.844</td></tr>
+            <tr><td>Theodor</td><td>0.346</td><td>340.878</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- EEXI -->
+    <section class="card">
+      <h2>EEXI (estimated)</h2>
+      <p class="muted">Unit: gCO₂/(t·nm). Lower is better.</p>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Vessel</th>
+              <th>EEXI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Alvin</td><td>36.41</td></tr>
+            <tr><td>Simon</td><td>35.06</td></tr>
+            <tr><td>Theodor</td><td>37.45</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Shipowner Group 7</small>
+    </div>
+  </footer>
+</body>
+</html>

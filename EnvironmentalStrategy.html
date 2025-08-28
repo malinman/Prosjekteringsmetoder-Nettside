@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Environmental Strategy · Group 7</title>
+  <meta name="description" content="Environmental strategy and commitments for Group 7" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Group 7</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" aria-label="Main menu">
+        <ul class="nav">
+          <li><a href="index.html">Our company</a></li>
+          <li><a href="FleetofVessels.html">Our fleet of vessels</a></li>
+          <li><a href="EnvironmentalStrategy.html" aria-current="page">Environmental strategy</a></li>
+          <li><a href="Calculations.html">Calculations</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Intro -->
+    <section id="EnvironmentalStrategy" class="hero card">
+      <h1>Environmental Strategy</h1>
+      <p>Our path to lower emissions focuses on design choices, operations, and transparent reporting.</p>
+      <a class="btn btn-ghost" href="index.html">← Back to home</a>
+    </section>
+
+    <!-- Net zero banner + chart -->
+    <section class="card nz">
+      <h2>Net zero by 2050</h2>
+      <p class="muted">
+        We commit to reaching net zero operational GHG emissions by 2050, with clear interim milestones to ensure progress.
+      </p>
+
+      <ul class="tags">
+        <li>2025: −20%</li>
+        <li>2030: −40%</li>
+        <li>2040: −65%</li>
+        <li>2050: Net zero</li>
+      </ul>
+
+      <figure class="chart" role="img"
+        aria-label="Illustrative pathway towards net zero by 2050. Index: 2024 = 100, declining to 0 by 2050 with milestones at −20% (2025), −40% (2030), −65% (2040).">
+        <svg class="nz-svg" viewBox="0 0 700 360" preserveAspectRatio="xMidYMid meet">
+          <!-- Axes -->
+          <g class="axes">
+            <line x1="60" y1="300" x2="680" y2="300" class="axis"/>
+            <line x1="60" y1="60"  x2="60"  y2="300" class="axis"/>
+            <g class="ticks">
+              <line x1="120" y1="300" x2="120" y2="306" class="tick"/><text x="120" y="322">2025</text>
+              <line x1="260" y1="300" x2="260" y2="306" class="tick"/><text x="260" y="322">2030</text>
+              <line x1="470" y1="300" x2="470" y2="306" class="tick"/><text x="470" y="322">2040</text>
+              <line x1="680" y1="300" x2="680" y2="306" class="tick"/><text x="680" y="322">2050</text>
+              <text x="60" y="322" text-anchor="start">2024</text>
+            </g>
+            <text x="52" y="65"  text-anchor="end">100</text>
+            <text x="52" y="300" text-anchor="end">0</text>
+          </g>
+
+          <!-- Illustrative baseline -->
+          <polyline class="bau" points="60,260 680,260" />
+
+          <!-- Net-zero pathway -->
+          <polyline id="nz-path" class="line" points="60,260 120,240 260,200 470,140 680,80" />
+
+          <!-- Milestones -->
+          <g class="milestones">
+            <circle cx="120" cy="240" r="5" class="dot"/><text x="120" y="230" text-anchor="middle">−20%</text>
+            <circle cx="260" cy="200" r="5" class="dot"/><text x="260" y="190" text-anchor="middle">−40%</text>
+            <circle cx="470" cy="140" r="5" class="dot"/><text x="470" y="130" text-anchor="middle">−65%</text>
+            <circle cx="680" cy="80"  r="6" class="dot strong"/><text x="680" y="70"  text-anchor="end">Net zero</text>
+          </g>
+        </svg>
+        <figcaption class="muted">Illustrative pathway for CO₂e intensity (index 2024 = 100). Not to scale.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Strategy bullets (kept) -->
+    <section class="grid">
+      <article class="card">
+        <h3>Design & Technology</h3>
+        <ul>
+          <li>Hull optimisation & energy-saving devices</li>
+          <li>Hybrid/battery integration where feasible</li>
+          <li>Fuel flexibility for future alternatives</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Operations</h3>
+        <ul>
+          <li>Voyage planning & speed optimisation</li>
+          <li>Shore power use in port</li>
+          <li>Continuous crew training</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Reporting</h3>
+        <ul>
+          <li>MRV / IMO DCS compliance</li>
+          <li>Clear KPIs and public dashboards</li>
+          <li>Supplier & partner engagement</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Shipowner Group 7</small>
+    </div>
+  </footer>
+
+  <!-- Tiny inline animation so the chart works even without edits to script.js -->
+  <script>
+    const nzPath = document.getElementById("nz-path");
+    if (nzPath) {
+      const len = nzPath.getTotalLength();
+      nzPath.style.strokeDasharray = String(len);
+      nzPath.style.strokeDashoffset = String(len);
+      nzPath.getBoundingClientRect(); // force layout
+      nzPath.style.transition = "stroke-dashoffset 1200ms ease";
+      nzPath.style.strokeDashoffset = "0";
+    }
+  </script>
+</body>
+</html>
